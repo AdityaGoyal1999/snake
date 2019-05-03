@@ -1,9 +1,12 @@
+
+import java.awt.Color;
+import java.awt.Graphics;
 public class BodyPart
 {
     
     private int xCoor, yCoor, width, height;
     
-    public BodyPart()
+    public BodyPart(int xCoor, int yCoor, int tileSize)
     {
         this.xCoor = xCoor;
         this.yCoor = yCoor;
@@ -18,7 +21,7 @@ public class BodyPart
         g.setColor(Color.YELLOW);
         g.fillRect(xCoor*width, yCoor*height, width, height);
     }
-    public void getxCoor()
+    public int getxCoor()
     {
         return xCoor;
     }

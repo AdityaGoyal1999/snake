@@ -1,13 +1,13 @@
-
-
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-public class Gamepanel extends JPanel
+public class Gamepanel extends JPanel implements Runnable, KeyListener
 {
     
      private static final long serialVersionUID = 1L;
@@ -23,11 +23,15 @@ public class Gamepanel extends JPanel
      
      private boolean running;
      
-     private boolean right = true, left = false, down = false;
+     private boolean right = true, left = false, up = false, down = false;
      private int ticks = 0;
         
      public Gamepanel()
         {
+            setFocusable(true);
+            setPreferredSize(new Dimension(WIDTH, HEIGHT));
+            addKeyListener(this);
+            
             setPreferredSize(new Dimension(WIDTH, HEIGHT));
             
             snake = new ArrayList<BodyPart>();
@@ -56,7 +60,7 @@ public class Gamepanel extends JPanel
      {
          if(snake.size() == 0)
          {
-             s = new BodyPart(xCoor, yCoor, 10);
+             b = new BodyPart(xCoor, yCoor, 10);
              snake.add(b);
          }
          ticks++;
@@ -106,4 +110,38 @@ public class Gamepanel extends JPanel
              repaint();
          }
     }   
+    public void keyPressed(KeyEvent e)
+    {
+        int key = e.getKeyCode();
+        if(key == KeyEvent.VK_RIGHT && !left)
+        {
+            right = true;
+            up = false;
+            down = false;
+        }
+        if(key == KeyEvent.VK_LEFT && !right)
+        {
+            right = true;
+            up = false;
+            down = false;
+        }
+        if(key == KeyEvent.VK_UP && !down)
+        {
+            up = true;
+            up = false;
+            down = false;
+        }
+        if(key == KeyEvent.VK_RIGHT && !up)
+        {
+            right = true;
+            up = false;
+            down = false;
+        }
+}
+    public void keyReleased(KeyEvent arg0)
+    {
+    }
+    public void keyTyped(KeyEvent arg0)
+    {
+    }
 }
