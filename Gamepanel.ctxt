@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Gamepanel
+comment1.params=
+comment1.target=Gamepanel()
+comment2.params=
+comment2.target=void\ start()
+comment3.params=
+comment3.target=void\ stop()
+comment4.params=
+comment4.target=void\ tick()
+comment5.params=g
+comment5.target=void\ paint(java.awt.Graphics)
+comment6.params=
+comment6.target=void\ run()
+numComments=7
