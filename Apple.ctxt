@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Apple
+comment1.params=xCoor\ yCoor\ tileSize
+comment1.target=Apple(int,\ int,\ int)
+comment2.params=
+comment2.target=void\ tick()
+comment3.params=g
+comment3.target=void\ draw(java.awt.Graphics)
+comment4.params=
+comment4.target=int\ getxCoor()
+comment5.params=xCoor
+comment5.target=void\ setxCoor(int)
+comment6.params=
+comment6.target=int\ getyCoor()
+comment7.params=yCoor
+comment7.target=void\ setyCoor(int)
+numComments=8
