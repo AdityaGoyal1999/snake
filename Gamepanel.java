@@ -25,7 +25,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
      private  BodyPart b;
      private ArrayList<BodyPart> snake;
      
-     private int xCoor = 10, yCoor = 10, size = 5;
+     private int xCoor = 10, yCoor = 10, size = 15;
      
      private boolean running;
      
@@ -98,7 +98,32 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
              apple = new Apple(xCoor, yCoor, 10);
              apples.add(apple);
          }
+         for(int i = 0; i< apples.size(); i++)
+         {
+            if(xCoor == apples.get(i).getxCoor() && yCoor == apples.get(i).getyCoor())
+            {
+                size++;
+                apples.remove(i);
+                i++;
+            }
         }
+        for(int i = 0; i< snake.size(); i++)
+        {
+            if(xCoor == snake.get(i).getxCoor() && yCoor == snake.get(i).getyCoor())
+            {
+                if(i != snake.size() - 1)
+                {
+                    System.out.println("Game Over");
+                    stop();
+                }
+            }
+        }
+        if(xCoor < 0 || yCoor > 49 || yCoor < 0 || yCoor > 49)
+        {
+            System.out.print("Game Over");
+            stop();
+        }
+      }
      public void paint(Graphics g)
      {
          g.clearRect(0, 0, WIDTH, HEIGHT);
@@ -130,9 +155,9 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
              tick();
              repaint();
          }
-    }   
-    public void keyPressed(KeyEvent e)
-    {
+     }   
+     public void keyPressed(KeyEvent e)
+     {
         int key = e.getKeyCode();
         if(key == KeyEvent.VK_RIGHT && !left)
         {
@@ -158,11 +183,11 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
             up = false;
             down = false;
         }
-}
-    public void keyReleased(KeyEvent arg0)
-    {
-    }
-    public void keyTyped(KeyEvent arg0)
-    {
-    }
+     }
+     public void keyReleased(KeyEvent arg0)
+     {
+     }
+     public void keyTyped(KeyEvent arg0)
+     {
+     }
 }
