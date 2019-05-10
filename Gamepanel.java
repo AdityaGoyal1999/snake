@@ -184,9 +184,12 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
             down = false;
         }
      }
+     // override
      public void keyReleased(KeyEvent arg0)
      {
      }
+     
+     // override
      public void keyTyped(KeyEvent arg0)
      {
      }
