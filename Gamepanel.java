@@ -15,6 +15,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
         
      public static final int WIDTH = 500, HEIGHT = 500;
      
+     // for the Runnable class
      private Thread thread;
 
      private Apple apple;
@@ -59,14 +60,15 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
          try
          {
              thread.join();
-            }
+         }
          catch(InterruptedException e)
          {
              e.printStackTrace();
-            }
+         }
      }
      public void tick()
      {
+         //System.out.print(snake.size());
          if(snake.size() == 0)
          {
              b = new BodyPart(xCoor, yCoor, 10);
@@ -92,6 +94,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
          }
          if(apples.size() == 0)
          {
+             // could be a bug when the snake's body and the apple coincides
              int xCoor = r.nextInt(49);
              int yCoor = r.nextInt(49);
 
@@ -104,6 +107,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
             {
                 size++;
                 apples.remove(i);
+                // is it okay to remove through the loop variable when we are  iterating over the loop
                 i++;
             }
         }
@@ -120,8 +124,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
         }
         if(xCoor < 0 || yCoor > 49 || yCoor < 0 || yCoor > 49)
         {
-            System.out.print("Game Over");
-            
+            System.out.println("Game Over");
             stop();
         }
       }
@@ -181,8 +184,8 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
         if(key == KeyEvent.VK_DOWN && !up)
         {
             down = true;
-            up = false;
-            down = false;
+            left = false;
+            right = false;
         }
      }
      // override
