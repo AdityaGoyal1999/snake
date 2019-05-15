@@ -121,6 +121,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
         if(xCoor < 0 || yCoor > 49 || yCoor < 0 || yCoor > 49)
         {
             System.out.print("Game Over");
+            
             stop();
         }
       }
@@ -137,7 +138,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
          }
          for (int i = 0;  i< HEIGHT/10; i++)
          {
-             g.drawLine(i*10, 0, i*10, HEIGHT);
+             g.drawLine(0, i*10, HEIGHT, i*10);
          }
          for(int i = 0; i < snake.size(); i++)
          {
@@ -167,19 +168,19 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
         }
         if(key == KeyEvent.VK_LEFT && !right)
         {
-            right = true;
+            left = true;
             up = false;
             down = false;
         }
         if(key == KeyEvent.VK_UP && !down)
         {
             up = true;
-            up = false;
-            down = false;
+            left = false;
+            right = false;
         }
-        if(key == KeyEvent.VK_RIGHT && !up)
+        if(key == KeyEvent.VK_DOWN && !up)
         {
-            right = true;
+            down = true;
             up = false;
             down = false;
         }
