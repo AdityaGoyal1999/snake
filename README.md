@@ -8,7 +8,6 @@
     <li> The snake collides with the boders of the game. </li>
   </ul>
   </p>
-
-![The snake game image](images/Screenshot%202019-05-10%20at%2010.53.16%20PM.png)
+<img style="align: center;" src="images/Screenshot%202019-05-10%20at%2010.53.16%20PM.png" width="200" />
 
 The language used is Java.
